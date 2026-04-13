@@ -1,0 +1,95 @@
+<?php
+
+// use App\Http\Controllers\HomeController;
+
+use App\Http\Controllers\ConfiguracionController;
+use App\Http\Controllers\FavoritosController;
+use App\Http\Controllers\GenteController;
+use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\LikeController;
+use Illuminate\Support\Facades\Route;
+// use App\Models\Image;
+
+Route::get('/', function () {
+    /*
+    $images = Image::all();
+
+    foreach ($images as $image) {
+        echo $image->image_path."<br>";
+        echo $image->description."<br>";
+        echo $image->user->name.' '.$image->user->surname."<br>";
+
+        if(count($image->comments) >= 1) {
+            echo "<h4>Comentarios</h4>";
+            foreach ($image->comments as $comment) {
+                echo $comment->user->name.' '.$comment->user->surname.'<br>';
+                echo $comment->content.'<br>';
+            }
+        }else{
+            echo "<h5>Esta imagen no tiene ningun comentario</h5>";
+        }
+
+        echo "<h4>Likes: ".count($image->likes).'</h4>'.'<hr>';
+    }
+    die();
+    */
+    return view('welcome');
+});
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// Grupo de rutas para la seccion del perfil (dashboard)
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [PerfilController::class, 'index'])
+        ->middleware(['verified'])
+        ->name('dashboard');
+});
+
+
+// Grupo de rutas para la seccion de gente
+// get: Lleva a la vista 'gente.blade.php' desde el menu desplegable 'admin'
+Route::middleware('auth')->group(function () {
+    Route::get('/gente', [GenteController::class, 'index'])->name('gente.view');
+});
+
+// Grupo de rutas para la seccion de favoritos
+// get: Lleva a la vista 'favoritos.blade.php' desde el menu desplegable 'admin'
+Route::middleware('auth')->group(function () {
+    Route::get('/favoritos', [FavoritosController::class, 'index'])->name('favoritos.view');
+});
+
+// Grupo de rutas para la seccion de imagenes
+// get: Lleva a la vista 'images.blade.php' desde el menu desplegable 'admin'
+Route::middleware('auth')->group(function () {
+    Route::get('/image/create', [ImagesController::class, 'create'])->name('images.view');
+    Route::post('/image/up', [ImagesController::class, 'upImage'])->name('images.save');
+    Route::get('/image/show/{filename}', [ImagesController::class, 'showImage'])->name('images.show');
+    Route::delete('/image/delete', [ImagesController::class, 'deleteImage'])->name('images.delete');
+});
+
+// Grupo de rutas para la seccion de configuracion
+// get: Lleva a la vista 'configuracion.blade.php' desde el menu desplegable 'admin'
+// Estas rutas actualizan los datos del usuario (por defecto laravel ya me daba esta posibilidad con la ruta de profile (mas arriba) pero lo hago para aprender)
+Route::middleware('auth')->group(function () {
+    Route::get('/config', [ConfiguracionController::class, 'config'])->name('config.view');
+    Route::post('/config', [ConfiguracionController::class, 'update'])->name('config.update');
+    Route::get('/user/avatar/{filename}', [ConfiguracionController::class, 'getImage'])->name('user.avatar');
+});
+
+// Grupo de rutas para la seccion de configuracion
+// get: muestra la cantidad de likes en una foto
+Route::middleware('auth')->group(function () {
+    Route::get('/likes/{image_id}', [LikeController::class, 'like'])->name('like.save');
+    Route::get('/dislikes/{image_id}', [LikeController::class, 'dislike'])->name('like.delete');
+
+});
+
+
+require __DIR__.'/auth.php';
