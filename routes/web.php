@@ -9,6 +9,7 @@ use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Route;
 // use App\Models\Image;
 
@@ -83,11 +84,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/avatar/{filename}', [ConfiguracionController::class, 'getImage'])->name('user.avatar');
 });
 
-// Grupo de rutas para la seccion de configuracion
-// get: muestra la cantidad de likes en una foto
+// Grupo de rutas para la seccion likes en una imagen
+// like.save: guarda un like del usuario autenticado en la db (like)
+// like.delete: elimina un like del usuario autenticado en la db (dislike)
 Route::middleware('auth')->group(function () {
     Route::get('/likes/{image_id}', [LikeController::class, 'like'])->name('like.save');
     Route::get('/dislikes/{image_id}', [LikeController::class, 'dislike'])->name('like.delete');
+});
+
+// Grupo de rutas para la seccion de comentarios en una imagen
+Route::middleware('auth')->group(function () {
+    Route::get('/comments/{image_id}', [CommentsController::class, 'comments'])->name('comments.view');
 
 });
 

@@ -63,7 +63,7 @@
                                     <span class="like-count text-sm" data-id="{{$image->id}}">{{count($image->likes)}}</span>
                                 </div>
                                 <div class="comments">
-                                    <a href="#" class="bg-gray-500 px-4 py-2 rounded hover:bg-gray-600 text-xs">Comentarios</a>
+                                    <a href="{{ route('comments.view', ['image_id' => $image->id]) }}" class="bg-gray-500 px-4 py-2 rounded hover:bg-gray-600 text-xs">Comentarios</a>
                                 </div>
                             </div>
 
