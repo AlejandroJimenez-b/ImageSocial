@@ -9,18 +9,23 @@ window.addEventListener('load', () => {
     function like() {
         $('.btn-like').unbind('click').click(function () { // unbind borra eventos antiguos ( unbind.('click') limpia el evento click, como si lo reanudara)
             console.log('like');
-            $(this).addClass('btn-dislike').removeClass('btn-like');
-            $(this).attr('src', url + '/img/heart-red.png');
+            var $btn = $(this);                          // ✅ Captura referencia antes del AJAX
+            var imageId = $btn.data('id');
+            $btn.addClass('btn-dislike').removeClass('btn-like');
+            $btn.attr('src', url + '/img/heart-red.png');
             // Aqui le implemento ajax
             $.ajax({
-                url: url + '/likes/' + $(this).data('id'), // la construccion de la url entera es: url -> image-social.com + '/like/' + el id de la imagen: ($(this) representa al evento click en el contenedor btn dislike, o sea el click en la imagen y su id -> .data('id'))
+                url: url + '/likes/' + imageId, // la construccion de la url entera es: url -> image-social.com + '/like/' + el id de la imagen: ($(this) representa al evento click en el contenedor btn dislike, o sea el click en la imagen y su id -> .data('id'))
 
                 type: 'GET',
                 success: function (response) {
                     if (response.like) {
+                        $('span.like-count[data-id="' + imageId + '"]').text(response.total);
                         console.log("Has dado like a esta publicacion");
                         
                     } else {
+                        $btn.addClass('btn-like').removeClass('btn-dislike');
+                        $btn.attr('src', url + '/img/heart-black.png');
                         console.log("Error al dar like");
                         
                     }
@@ -35,17 +40,22 @@ window.addEventListener('load', () => {
     function dislike() {
         $('.btn-dislike').unbind('click').click(function () {
             console.log('dislike');
-            $(this).addClass('btn-like').removeClass('btn-dislike');
-            $(this).attr('src', url + '/img/heart-black.png');
+            var $btn = $(this);                          // ✅ Ídem
+            var imageId = $btn.data('id');
+            $btn.addClass('btn-like').removeClass('btn-dislike');
+            $btn.attr('src', url + '/img/heart-black.png');
             $.ajax({
-                url: url + '/dislikes/' + $(this).data('id'), // la construccion de la url entera es: url -> image-social.com + '/like/' + el id de la imagen: ($(this) representa al evento click en el contenedor btn dislike, o sea el click en la imagen y su id -> .data('id'))
+                url: url + '/dislikes/' + imageId, // la construccion de la url entera es: url -> image-social.com + '/like/' + el id de la imagen: ($(this) representa al evento click en el contenedor btn dislike, o sea el click en la imagen y su id -> .data('id'))
 
                 type: 'GET',
                 success: function (response) {
                     if (response.like) {
+                        $('span.like-count[data-id="' + imageId + '"]').text(response.total);
                         console.log("Has dado dislike a esta publicacion");
                         
                     } else {
+                        $btn.addClass('btn-dislike').removeClass('btn-like');
+                        $btn.attr('src', url + '/img/heart-red.png');
                         console.log("Error al dar dislike");
                         
                     }

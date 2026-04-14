@@ -33,8 +33,10 @@ class LikeController extends Controller
             $like->image_id = (int)$image_id; // Y donde image_id de la tabla likes sea igual al id de la imagen
             $like->save(); // Registro el like del usuario identificado en esa imagen -> en la db
             // Devuelvo un json porque asi lo requiere AJAX en javascript (para el sistema de likes y funcionalidad del boton like/dislike)
+            $total = \App\Models\Like::where('image_id', $image_id)->count();
             return response()->json([
                 "like" => $like,
+                "total" => $total
                 ]);
         }else{
             return response()->json(["message", "Ya has dado like a esta imagen"]);
@@ -50,8 +52,10 @@ class LikeController extends Controller
 
         if ($like) {
             $like->delete();
+            $total = \App\Models\Like::where('image_id', $image_id)->count();
             return response()->json([
                 "like" => $like, // Me devuelve el objeto que he eliminado
+                "total" => $total,
                 "message", "Has dado dislike",
                 ]);
         }else{
