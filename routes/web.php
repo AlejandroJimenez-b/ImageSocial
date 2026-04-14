@@ -95,6 +95,8 @@ Route::middleware('auth')->group(function () {
 // Grupo de rutas para la seccion de comentarios en una imagen
 Route::middleware('auth')->group(function () {
     Route::get('/comments/{image_id}', [CommentsController::class, 'comments'])->name('comments.view');
+    Route::post('/comments/{image_id}', [CommentsController::class, 'store'])->name('comments.store');
+    Route::delete('/comments/{comment_id}', [CommentsController::class, 'destroy'])->name('comments.destroy');
 
 });
 

@@ -13,4 +13,14 @@ class CommentsController extends Controller
             "comment" => $comments
         ]);
     }
+
+    public function store() {
+        // mira el diseño del cuaderno
+    }
+
+    public function destroy() {
+        // mira el diseño del cuaderno
+    }
 }
+
+
