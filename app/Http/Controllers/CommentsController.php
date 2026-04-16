@@ -39,9 +39,20 @@ class CommentsController extends Controller
 
     }
 
-    public function destroy() {
-        // mira el diseño del cuaderno
+    public function destroy($comment_id) {
+        $user = Auth::user();
+
+        $comment = Comment::where('user_id', $user->id)
+        ->where('id', $comment_id)
+        ->first();
+
+        if ($comment) {
+            $comment->delete();
+        }
+
+        return redirect()->route('comments.view', ['image_id' => $comment->image_id]);
     }
+
 }
 
 

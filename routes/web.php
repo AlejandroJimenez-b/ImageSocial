@@ -98,6 +98,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/comments/{image_id}', [CommentsController::class, 'store'])->name('comments.store');
     Route::delete('/comments/{comment_id}', [CommentsController::class, 'destroy'])->name('comments.destroy');
 
+
 });
 
 

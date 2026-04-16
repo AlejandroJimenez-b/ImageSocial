@@ -63,6 +63,15 @@
                     <span class="text-xs text-gray-400">
                         {{ $comment->created_at_human }}
                     </span>
+                    @if($comment->user_id == auth()->user()->id)
+                    <form action="{{ route('comments.destroy', ['comment_id' => $comment->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-xs text-red-400 hover:text-red-600 transition">
+                            Eliminar
+                        </button>
+                    </form>
+                    @endif
                 </div>
                 <p class="text-sm text-gray-700 leading-snug">
                     {{ $comment->content }}
