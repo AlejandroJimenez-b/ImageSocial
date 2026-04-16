@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth; // Tengo que hacer el use de auth para que me de el usuario identificado
 use Illuminate\Support\Facades\Storage; // Para manejo de imagenes
@@ -53,7 +54,7 @@ class ConfiguracionController extends Controller
 
         if ($image_path) {
             // Si image_path es true (le asigno un nombre UNICO asi)
-            $image_path_name = time().$image_path->getClientOriginalName();
+            $image_path_name = time() . str_replace(' ', '', $image_path->getClientOriginalName());
 
             // Guardo la imagen (lo creado arriba) en la carpeta storage (storage/app/users)
             // ->put(nombre del archivo, y el archivo en si)
