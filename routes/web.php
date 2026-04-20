@@ -97,7 +97,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/comments/{image_id}', [CommentsController::class, 'comments'])->name('comments.view');
     Route::post('/comments/{image_id}', [CommentsController::class, 'store'])->name('comments.store');
     Route::delete('/comments/{comment_id}', [CommentsController::class, 'destroy'])->name('comments.destroy');
-
+    Route::get('/comments/{image_id}/json', [CommentsController::class, 'getComments'])->name('comments.json');
 
 });
 

@@ -35,7 +35,7 @@ class CommentsController extends Controller
 
         $comment->save();
 
-        return redirect()->route('comments.view', ['image_id' => $image_id]);
+        return response()->json(['success' => true]);
 
     }
 
@@ -50,7 +50,26 @@ class CommentsController extends Controller
             $comment->delete();
         }
 
-        return redirect()->route('comments.view', ['image_id' => $comment->image_id]);
+        return response()->json(['success' => true]);
+    }
+
+    public function getComments($image_id) {
+        $comments = Comment::where('image_id', $image_id)
+            ->with('user')  // ✅ evita N+1 queries
+            ->get();
+
+        return response()->json([
+            'comments' => $comments->map(function($comment) {
+                return [
+                    'id'         => $comment->id,
+                    'content'    => $comment->content,
+                    'nick'       => $comment->user->nick,
+                    'avatar'     => route('user.avatar', ['filename' => $comment->user->image]),
+                    'created_at' => $comment->created_at_human,
+                    'is_owner'   => $comment->user_id == auth()->user()->id,
+                ];
+            })
+        ]);
     }
 
 }
