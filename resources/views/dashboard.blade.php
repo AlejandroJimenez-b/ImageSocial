@@ -69,7 +69,9 @@
                                     data-image="{{route('images.show', $image->image_path)}}"
                                     data-store="{{ route('comments.store', ['image_id' => $image->id]) }}">
                                     
-                                    Comentarios ({{count($image->comments)}})
+                                    Comentarios (<span class="comment-count" data-id="{{$image->id}}">
+                                                    {{count($image->comments)}}
+                                                </span>)
                                     </button>
                                 </div>
                             </div>

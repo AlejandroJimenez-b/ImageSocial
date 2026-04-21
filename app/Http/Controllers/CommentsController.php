@@ -35,7 +35,11 @@ class CommentsController extends Controller
 
         $comment->save();
 
-        return response()->json(['success' => true]);
+        return response()->json([
+        'success' => true,
+        'count' => Comment::where('image_id', $image_id)->count()
+        ]);
+        
 
     }
 
@@ -50,7 +54,10 @@ class CommentsController extends Controller
             $comment->delete();
         }
 
-        return response()->json(['success' => true]);
+        return response()->json([
+        'success' => true,
+        'count' => Comment::where('image_id', $comment->image_id)->count()
+        ]);
     }
 
     public function getComments($image_id) {

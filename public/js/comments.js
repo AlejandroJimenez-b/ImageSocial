@@ -60,6 +60,18 @@ window.addEventListener('load', () => {
         });
     }
 
+    function actualizarContador(imageId, newCount) {
+
+    let counter = $(`span.comment-count[data-id="${String(imageId)}"]`);
+
+    // animación suave
+    counter.fadeOut(100, function() {
+        counter.text(newCount).fadeIn(100);
+    });
+
+    }
+
+
     // Abrir modal al pulsar "Comentarios"
     $('.btn-comments').click(function() {
         const imageId = $(this).data('id');
@@ -88,8 +100,13 @@ window.addEventListener('load', () => {
             url: actionUrl,
             type: 'POST',
             data: formData,
-            success: function() {
+            success: function(response) {
                 modalForm.find('textarea').val(''); // Limpiar textarea
+
+                // 🔥 actualizar contador
+                if (response.count !== undefined) {
+                    actualizarContador(imageId, response.count);
+                }
                 cargarComentarios(imageId);         // Recargar comentarios
             },
             error: function() {
@@ -99,7 +116,6 @@ window.addEventListener('load', () => {
     });
 
     // Eliminar comentario por AJAX sin cerrar el modal
-    // #modal-comments form
     $(document).off('submit', '.delete-comment-form')
     .on('submit', '.delete-comment-form', function(e) {
         e.preventDefault();
@@ -110,9 +126,7 @@ window.addEventListener('load', () => {
         let imageId = modalForm.data('image-id');
          // 🔥 animación
         let commentDiv = form.closest('.comment-item');
-        // const formData = $(this).serialize();
-        // const actionUrl = $(this).attr('action');
-        // const imageId = modalForm.data('image-id');
+
         commentDiv.fadeOut(200, function() {
 
         $.ajax({
@@ -121,25 +135,18 @@ window.addEventListener('load', () => {
             data: form.serialize(),
             success: function(response) {
                 if (response.success) {
+
+                // 🔥 actualizar contador
+                if (response.count !== undefined) {
+
+                    actualizarContador(imageId, response.count);
+                }
                     cargarComentarios(imageId);
                 }
             }
         });
     });
 
-        $.ajax({
-            url: actionUrl,
-            type: 'POST',
-            data: formData,
-            success: function() {
-                cargarComentarios(imageId); // ✅ Recarga comentarios sin cerrar modal
-
-
-            },
-            error: function() {
-                console.log('Error al eliminar el comentario');
-            }
-        });
     });
 
     // Cerrar modal con botón X
