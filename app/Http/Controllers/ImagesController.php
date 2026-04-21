@@ -54,12 +54,20 @@ class ImagesController extends Controller
         return redirect()->route('dashboard')->with(['message' => 'La foto se ha subido correctamente']);
     }
 
+    public function details($id) {
+        $image = Image::findOrFail($id);
+        $comments = $image->comments()->with('user')->get();
+        $likesCount = $image->likes()->count();
+
+        return view('comments.details', compact('image', 'comments', 'likesCount'));
+    }
+
     public function showImage($filename) {
         // Mostrar(get)la imagen en el perfil
         return Storage::disk('images')->response($filename);
     }
 
-    public function deleteImage() {
+    public function deleteImage($id) {
         // Eliminar imagen(delete) del perfil
     }
 

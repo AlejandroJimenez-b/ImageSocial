@@ -71,8 +71,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/image/create', [ImagesController::class, 'create'])->name('images.view');
     Route::post('/image/up', [ImagesController::class, 'upImage'])->name('images.save');
+    Route::get('/image/details/{id}', [ImagesController::class, 'details'])->name('images.details');
     Route::get('/image/show/{filename}', [ImagesController::class, 'showImage'])->name('images.show');
-    Route::delete('/image/delete', [ImagesController::class, 'deleteImage'])->name('images.delete');
+    Route::delete('/image/delete/{id}', [ImagesController::class, 'deleteImage'])->name('images.delete');
 });
 
 // Grupo de rutas para la seccion de configuracion

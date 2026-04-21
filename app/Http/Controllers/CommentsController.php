@@ -14,7 +14,7 @@ class CommentsController extends Controller
         $comments = Comment::where('image_id', $image_id)
         ->orderBy('id', 'desc')
         ->get();
-        return view('comments.comments',[
+        return view('comments.details',[
             "comments" => $comments,
             'image' => $image
         ]);

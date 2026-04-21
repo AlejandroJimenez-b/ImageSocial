@@ -38,7 +38,9 @@
                         </div>
                     </div>
                     <div class="w-full max-h-96 overflow-hidden rounded-lg">
+                        <a href="{{ route('images.details', $image->id) }}">
                         <img class="w-48 h-32 object-cover" src="{{ route('images.show', ['filename' => $image->image_path]) }}">
+                        </a>
                         <span class="text-xs text-gray-600">
                             {{' @'.$image->user->nick.' | '.$image->created_at_human}}
                         </span>
