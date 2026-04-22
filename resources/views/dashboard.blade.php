@@ -119,7 +119,7 @@
                 <div class="flex items-start gap-3">
                     <img 
                         src="{{ route('user.avatar', ['filename' => auth()->user()->image]) }}"
-                        class="w-10 h-10 rounded-full object-cover flex-shrink-0 border-2 border-gray-200"
+                        class="w-8 h-8 rounded-full object-cover flex-shrink-0 border-2 border-gray-200"
                     >
                     <div class="flex-1">
                         <textarea 

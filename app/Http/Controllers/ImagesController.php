@@ -68,7 +68,20 @@ class ImagesController extends Controller
     }
 
     public function deleteImage($id) {
-        // Eliminar imagen(delete) del perfil
+        $image = Image::findOrFail($id);
+
+        // Verificar que el usuario autenticado es el dueño
+        if (auth()->id() !== $image->user_id) {
+            return redirect()->back()->with('error', 'No tienes permiso para eliminar esta imagen.');
+        }
+
+        // Borrar archivo físico del disco
+        Storage::disk('images')->delete($image->image_path);
+
+        // Borrar de la BD (comments y likes se borran en cascada)
+        $image->delete();
+
+        return redirect()->route('dashboard')->with('success', 'Imagen eliminada correctamente.');
     }
 
 }
