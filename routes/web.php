@@ -67,7 +67,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Grupo de rutas para la seccion de imagenes
-// get: Lleva a la vista 'images.blade.php' desde el menu desplegable 'admin'
+
 Route::middleware('auth')->group(function () {
     Route::get('/image/create', [ImagesController::class, 'create'])->name('images.view');
     Route::post('/image/up', [ImagesController::class, 'upImage'])->name('images.save');
@@ -80,7 +80,7 @@ Route::middleware('auth')->group(function () {
 
 // Grupo de rutas para la seccion de configuracion
 // get: Lleva a la vista 'configuracion.blade.php' desde el menu desplegable 'admin'
-// Estas rutas actualizan los datos del usuario (por defecto laravel ya me daba esta posibilidad con la ruta de profile (mas arriba) pero lo hago para aprender)
+
 Route::middleware('auth')->group(function () {
     Route::get('/config', [ConfiguracionController::class, 'config'])->name('config.view');
     Route::post('/config', [ConfiguracionController::class, 'update'])->name('config.update');
@@ -88,8 +88,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Grupo de rutas para la seccion likes en una imagen
-// like.save: guarda un like del usuario autenticado en la db (like)
-// like.delete: elimina un like del usuario autenticado en la db (dislike)
+
 Route::middleware('auth')->group(function () {
     Route::get('/likes/{image_id}', [LikeController::class, 'like'])->name('like.save');
     Route::get('/dislikes/{image_id}', [LikeController::class, 'dislike'])->name('like.delete');
