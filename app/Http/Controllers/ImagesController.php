@@ -67,6 +67,31 @@ class ImagesController extends Controller
         return Storage::disk('images')->response($filename);
     }
 
+    public function updateImage($id) {
+        $image = Image::findOrFail($id);
+        return view('imagenes.update', [
+            'image' => $image
+        ]);
+    }
+
+    public function saveImageUpdate(Request $request, $id) {
+        $image = Image::findOrFail($id);
+
+        // Verificar que el usuario autenticado es el dueño
+        if (auth()->id() !== $image->user_id) {
+            return redirect()->back()->with('error', 'No tienes permiso para editar esta imagen.');
+        }
+
+        $this->validate($request, [
+            'description' => ['required', 'string', 'max:255'],
+        ]);
+
+        $image->description = $request->input('description');
+        $image->save();
+
+        return redirect()->route('images.details', $image->id)->with('success', 'Descripción actualizada correctamente.');
+    }
+
     public function deleteImage($id) {
         $image = Image::findOrFail($id);
 

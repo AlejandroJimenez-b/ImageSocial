@@ -38,12 +38,21 @@
             @if(auth()->id() == $image->user_id)
                 <div class="mt-5 flex justify-end">
                     <button type="button"
-                            class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 rounded-lg"
+                            class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 rounded-lg m-2"
                             onclick="document.getElementById('modal-delete').classList.remove('hidden')">
                         🗑️ Eliminar imagen
                     </button>
-                </div>
 
+                    <form action="{{ route('images.update', $image->id) }}" method="GET">
+                        <button type="submit"
+                            class="bg-blue-600 hover:bg-red-700 text-white text-sm px-4 py-2 rounded-lg"
+                                onclick="document.getElementById('modal-edit').classList.remove('hidden')">
+                                🖌 Editar imagen
+                            </button>
+                    </form>
+
+                </div>
+                   
                 {{-- MODAL CONFIRMACIÓN --}}
                 <div id="modal-delete" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
                     <div class="bg-gray-800 rounded-xl shadow-xl p-6 max-w-sm w-full mx-4">
@@ -72,6 +81,7 @@
                 </div>
             @endif
         </div>
+        
 
         {{-- DESCRIPCIÓN --}}
         @if($image->description)
@@ -79,6 +89,7 @@
             <p class="mb-2 text-white text-mm italic text-center">{{ $image->description }}</p>
         </div>
         @endif
+
 
         <hr class="my-6 border-gray-500 mb-2"/>
 

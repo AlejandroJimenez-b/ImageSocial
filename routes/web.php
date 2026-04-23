@@ -72,6 +72,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/image/create', [ImagesController::class, 'create'])->name('images.view');
     Route::post('/image/up', [ImagesController::class, 'upImage'])->name('images.save');
     Route::get('/image/details/{id}', [ImagesController::class, 'details'])->name('images.details');
+    Route::get('/image/update/{id}', [ImagesController::class, 'updateImage'])->name('images.update');
+    Route::post('/image/save/update/{id}', [ImagesController::class, 'saveImageUpdate'])->name('images.updatesave');
     Route::get('/image/show/{filename}', [ImagesController::class, 'showImage'])->name('images.show');
     Route::delete('/image/delete/{id}', [ImagesController::class, 'deleteImage'])->name('images.delete');
 });
