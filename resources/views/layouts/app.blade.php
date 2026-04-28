@@ -12,9 +12,11 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/main.js') }}" defer></script>
         <script src="{{ asset('js/comments.js') }}"></script>
+        <script src="{{ asset('js/infinitescroll.js') }}"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         
     </head>
