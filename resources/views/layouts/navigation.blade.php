@@ -57,6 +57,10 @@
                         <x-dropdown-link :href="route('dashboard')">
                             {{ __('Inicio') }}
                         </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('gente.profile', auth()->user()->id)">
+                            {{ __('Mi perfil') }}
+                        </x-dropdown-link>
                         
                         <!-- Configuracion (agregado por mi) -->
                         <x-dropdown-link :href="route('config.view')">

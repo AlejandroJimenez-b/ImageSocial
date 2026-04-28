@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
 // get: Lleva a la vista 'gente.blade.php' desde el menu desplegable 'admin'
 Route::middleware('auth')->group(function () {
     Route::get('/gente', [GenteController::class, 'index'])->name('gente.view');
+    Route::get('/profile/{id}', [GenteController::class, 'profile'])->name('gente.profile');
 });
 
 // Grupo de rutas para la seccion de favoritos
