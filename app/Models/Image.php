@@ -21,6 +21,10 @@ class Image extends Model
         return $this->hasMany('App\Models\Like');
     }
 
+    public function favorites() {
+        return $this->hasMany(Favorite::class, 'image_id');
+    }
+
     // Como un user puede tener varias imagenes (o solo una) hago una relacion De Muchos A Uno (belongsTo)
     // Relacion: id de Users -> user_id de la tabla Images
     // Muchas imagenes pertenecen a 1 solo usuario

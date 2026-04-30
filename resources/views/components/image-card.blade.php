@@ -62,6 +62,27 @@
                                     </span>
                                 </div>
 
+                                <!-- Favoritos -->
+                                <div class="flex items-center gap-1 text-xs text-gray-500">
+                                    <?php
+                                        $user_favorite = $image->favorites->contains('user_id', auth()->id());
+                                    ?>
+
+                                    @if($user_favorite)
+                                        <img src="{{asset('img/favorite-yellow.png')}}"
+                                                data-id="{{$image->id}}"
+                                                class="btn-disfavorite w-28 h-4 object-cover">
+                                    @else
+                                        <img src="{{asset('img/favorite-black.png')}}"
+                                                data-id="{{$image->id}}"
+                                                class="btn-favorite w-28 h-4 object-cover">
+                                    @endif
+
+                                    <span class="favorite-count text-sm" data-id="{{$image->id}}">
+                                        {{$image->favorites->count()}}
+                                    </span>
+                                </div>
+
                                 <!-- Comentarios -->
                                 <div class="comments">
                                     <button

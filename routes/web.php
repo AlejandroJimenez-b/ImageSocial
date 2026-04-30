@@ -61,12 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/{id}', [GenteController::class, 'profile'])->name('gente.profile');
 });
 
-// Grupo de rutas para la seccion de favoritos
-// get: Lleva a la vista 'favoritos.blade.php' desde el menu desplegable 'admin'
-Route::middleware('auth')->group(function () {
-    Route::get('/favoritos', [FavoritosController::class, 'index'])->name('favoritos.view');
-});
-
 // Grupo de rutas para la seccion de imagenes
 
 Route::middleware('auth')->group(function () {
@@ -93,6 +87,14 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/likes/{image_id}', [LikeController::class, 'like'])->name('like.save');
     Route::get('/dislikes/{image_id}', [LikeController::class, 'dislike'])->name('like.delete');
+});
+
+// Grupo de rutas para la seccion favoritos en una imagen
+
+Route::middleware('auth')->group(function () {
+    Route::get('/favoritos', [FavoritosController::class, 'index'])->name('favoritos.view');
+    Route::get('/favorites/{image_id}', [FavoritosController::class, 'favorite'])->name('favorite.save');
+    Route::get('/nonfavorites/{image_id}', [FavoritosController::class, 'disfavorite'])->name('favorite.delete');
 });
 
 // Grupo de rutas para la seccion de comentarios en una imagen

@@ -15,6 +15,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/main.js') }}" defer></script>
+        <script src="{{ asset('js/favorites.js') }}" defer></script>
         <script src="{{ asset('js/comments.js') }}"></script>
         <script src="{{ asset('js/infinitescroll.js') }}"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
