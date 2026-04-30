@@ -39,5 +39,6 @@
                 {{ $slot }}
             </main>
         </div>
+    @include('partials.comments-modal')
     </body>
 </html>

@@ -23,7 +23,7 @@ class FavoritosController extends Controller
         ->orderBy('id', 'desc')
         ->get();
 
-        return view('favourits.favoritos', compact('images'));
+        return view('favourits.favoritos', compact('images'), compact('user'));
     }
 
     public function favorite($image_id) {

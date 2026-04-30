@@ -22,7 +22,7 @@
                     {{-- INFO --}}
                     <div>
                         <p class="text-white font-semibold text-sm">{{ $user->name }} {{ $user->surname }}</p>
-                        <p class="text-gray-400 text-xs mt-0.5">@{{ $user->nick }}</p>
+                        <p class="text-gray-400 text-xs mt-0.5">{{' @'.$user->nick }}</p>
                     </div>
                 </div>
             </a>

@@ -73,14 +73,18 @@ window.addEventListener('load', () => {
 
 
     // Abrir modal al pulsar "Comentarios"
-    $('.btn-comments').click(function() {
+    $(document).off('click', '.btn-comments')
+    .on('click', '.btn-comments', function(e) {
+
+        e.preventDefault();
+
         const imageId = $(this).data('id');
         const imageSrc = $(this).data('image');
         const storeUrl = $(this).data('store');
 
         modalImage.attr('src', imageSrc);
         modalForm.attr('action', storeUrl);
-        modalForm.data('image-id', imageId); // ✅ Guardamos el imageId en el formulario
+        modalForm.data('image-id', imageId);
 
         cargarComentarios(imageId);
 

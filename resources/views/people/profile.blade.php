@@ -10,7 +10,7 @@
 
         <div class="flex-1">
             <p class="text-white font-semibold text-lg">{{ $user->name }} {{ $user->surname }}</p>
-            <p class="text-gray-400 text-sm mt-0.5">@{{ $user->nick }}</p>
+            <p class="text-gray-400 text-sm mt-0.5"> {{' @'.$user->nick }}</p>
             <p class="text-gray-500 text-xs mt-1">{{ count($images) }} publicaciones</p>
         </div>
 
@@ -30,31 +30,20 @@
     <h2 class="text-white font-semibold text-base mb-4 text-center">Publicaciones</h2>
 
     @forelse($images as $image)
-        <a href="{{ route('images.details', $image->id) }}">
-            <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-indigo-500 transition mb-4">
 
-                <img src="{{ route('images.show', $image->image_path) }}"
-                     alt="imagen"
-                     class="w-full max-h-72 object-cover"/>
+        <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-indigo-500 transition mb-4">
 
-                <div class="p-4 flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-200 text-sm italic">{{ $image->description }}</p>
-                        <p class="text-gray-500 text-xs mt-1">{{ $image->created_at_human }}</p>
-                    </div>
-                    <div class="flex items-center gap-1 text-gray-400 text-sm">
-                        ❤️ <span>{{ $image->likes()->count() }}</span>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-sm italic">Comentarios<a href="{{ route('comments.view', $image->id) }}"></a></p>
-                    </div>
-                </div>
 
+            <div class="max-w-7xl mx-full items-center justify-between">
+                <x-image-card :image="$image" />
             </div>
-        </a>
+
+        </div>
+
     @empty
         <p class="text-gray-500 text-sm">Este usuario no tiene publicaciones aún.</p>
     @endforelse
 
 </div>
+
 </x-app-layout>
