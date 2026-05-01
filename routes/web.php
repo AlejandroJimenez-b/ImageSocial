@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 // use App\Models\Image;
 
@@ -106,5 +107,10 @@ Route::middleware('auth')->group(function () {
 
 });
 
+// Grupo de rutas para el buscador
+Route::middleware('auth')->group(function () {
+    Route::get('/search', [SearchController::class, 'search'])->name('search.view');
+
+});
 
 require __DIR__.'/auth.php';

@@ -34,6 +34,18 @@
                         {{ __('Subir imagen') }}
                     </x-nav-link>
                 </div>
+
+                <!-- buscador -->
+                <div class="hidden sm:flex sm:items-center sm:ms-6">
+                    <form action="{{ route('search.view') }}" method="GET" class="flex items-center">
+                        <input 
+                            type="text" 
+                            name="q"
+                            placeholder="Buscar..."
+                            value="{{ request('q') }}"
+                            class="bg-gray-700 text-gray-200 text-sm rounded-lg px-4 py-1.5 w-48 focus:w-64 focus:outline-none focus:ring-1 focus:ring-indigo-500 border border-gray-600 placeholder-gray-400 transition-all duration-300"/>
+                    </form>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
