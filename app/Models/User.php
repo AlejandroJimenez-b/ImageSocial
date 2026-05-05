@@ -55,4 +55,21 @@ class User extends Authenticatable
     public function images() {
         return $this->hasMany('App\Models\Image');
     }
+
+    // Solicitudes enviadas por este usuario
+    // Un usuario puede enviar muchas peticiones (hasMany)
+    // Solicitudes que ESTE usuario ha enviado
+    // Relación con Friendship donde user_id = este usuario
+    public function sentFriendships() {
+        return $this->hasMany(Friendship::class, 'user_id');
+    }
+
+    // Solicitudes recibidas por este usuario
+    // Un usuario puede recibir muchas peticiones (hasMany)
+    // Solicitudes que ESTE usuario ha recibido
+    // Relación con Friendship donde friend_id = este usuario
+    public function receivedFriendships() {
+        return $this->hasMany(Friendship::class, 'friend_id');
+    }
+
 }

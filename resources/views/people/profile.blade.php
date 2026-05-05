@@ -14,6 +14,62 @@
             <p class="text-gray-500 text-xs mt-1">{{ count($images) }} publicaciones</p>
         </div>
 
+        {{-- BOTÓN AMISTAD (solo en perfiles ajenos) --}}
+        @if(auth()->id() != $user->id)
+
+            @if(!$friendship)
+                {{-- Sin relacion -> Añadir amigo --}}
+                <form action="{{ route('friends.send', $user->id) }}" method="POST">
+                    @csrf
+                    <button type="submit"
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">
+                        + Añadir amigo
+                    </button>
+                </form>
+
+            @elseif($friendship->status == 'pending' && $friendship->user_id == auth()->id())
+                {{-- Yo envié la solicitud -> esperando --}}
+                <span class="text-gray-400 text-xs font-semibold px-4 py-2 rounded-lg border border-gray-600">
+                    Solicitud enviada
+                </span>
+
+            @elseif($friendship->status == 'pending' && $friendship->friend_id == auth()->id())
+                {{-- Me enviaron a mi -> Aceptar o Rechazar --}}
+                <div class="flex gap-2">
+                    <form action="{{ route('friends.accept', $user->id) }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                                class="bg-green-600 hover:bg-green-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">
+                            Aceptar
+                        </button>
+                    </form>
+                    <form action="{{ route('friends.reject', $user->id) }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                                class="bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">
+                            Rechazar
+                        </button>
+                    </form>
+                </div>
+
+            @elseif($friendship->status == 'accepted')
+                {{-- Ya sois amigos --}}
+                <div class="flex gap-2 items-center">
+                    <span class="text-green-400 text-xs font-semibold">✓ Amigos</span>
+                    <form action="{{ route('friends.delete', $user->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                                class="bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">
+                            Eliminar amigo
+                        </button>
+                    </form>
+                </div>
+
+            @endif
+
+        @endif
+
         {{-- BOTÓN EDITAR solo si es tu propio perfil --}}
         @if(auth()->id() == $user->id)
             <a href="{{ route('config.view') }}"
