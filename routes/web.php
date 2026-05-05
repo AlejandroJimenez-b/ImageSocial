@@ -11,6 +11,7 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\FriendshipController;
 use Illuminate\Support\Facades\Route;
 // use App\Models\Image;
 
@@ -81,6 +82,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/config', [ConfiguracionController::class, 'config'])->name('config.view');
     Route::post('/config', [ConfiguracionController::class, 'update'])->name('config.update');
     Route::get('/user/avatar/{filename}', [ConfiguracionController::class, 'getImage'])->name('user.avatar');
+});
+
+// Grupo de rutas para los amigos de un usuario
+
+Route::middleware('auth')->group(function () {
+    Route::get('/friends', [FriendshipController::class, 'index'])->name('friends.view');
+    Route::post('/friends/send/{id}', [FriendshipController::class, 'sendRequest'])->name('friends.send');
+    Route::post('/friends/accept/{id}', [FriendshipController::class, 'acceptRequest'])->name('friends.accept');
+    Route::post('/friends/reject/{id}', [FriendshipController::class, 'rejectRequest'])->name('friends.reject');
+    Route::delete('/friends/delete/{id}', [FriendshipController::class, 'deleteFriend'])->name('friends.delete');
 });
 
 // Grupo de rutas para la seccion likes en una imagen

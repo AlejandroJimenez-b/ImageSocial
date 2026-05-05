@@ -1,23 +1,29 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Inicio') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-10 mt-4">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("Bienvenido/a") }} <span>{{ auth()->user()->name }}</span>
-                </div>
+    <x-slot name="header">
+
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 border-b border-gray-200 dark:border-gray-700">
+        <div class="w-full mx-auto sm:px-6 lg:px-8">
+            <div class="p-6 text-gray-900 dark:text-gray-100">
+                {{ __("Bienvenido/a") }} <span>{{ auth()->user()->name }}</span>
             </div>
         </div>
     </div>
 
+    <div class="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+        <div class="w-full mx-auto sm:px-6 lg:px-8">
+            <h2 class="font-semibold text-xl py-4 text-gray-800 dark:text-gray-200 leading-tight text-center">
+                {{ __('Feed') }}
+            </h2>
+        </div>
+    </div>
+
+    </x-slot>
+
+    <x-slot name="slot">
     <div class="flex items-center py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="max-w-5xl bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 
                 <div id="feed-container" class="bg-white dark:bg-gray-800">
                     @include('partials.images-loop', ['images' => $images])
@@ -38,5 +44,5 @@
             </div>
         </div>
     </div>
-
+    </x-slot>
 </x-app-layout>
