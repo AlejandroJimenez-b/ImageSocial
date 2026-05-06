@@ -34,7 +34,7 @@
                         </div>
 
                         <!-- Descripción + acciones -->
-                        <div class="description">
+                        <div class="description w-full max-h-96 overflow-hidden rounded-lg">
                             <p class="text-xm text-gray-400">
                                 {{ $image->description}}
                             </p>
@@ -50,11 +50,11 @@
                                     @if($user_like)
                                         <img src="{{asset('img/heart-red.png')}}"
                                                 data-id="{{$image->id}}"
-                                                class="btn-dislike w-28 h-4 object-cover">
+                                                class="btn-dislike w-6 h-6 object-cover">
                                     @else
                                         <img src="{{asset('img/heart-black.png')}}"
                                                 data-id="{{$image->id}}"
-                                                class="btn-like w-28 h-4 object-cover">
+                                                class="btn-like w-6 h-6 object-cover">
                                     @endif
 
                                     <span class="like-count text-sm" data-id="{{$image->id}}">
@@ -71,11 +71,11 @@
                                     @if($user_favorite)
                                         <img src="{{asset('img/favorite-yellow.png')}}"
                                                 data-id="{{$image->id}}"
-                                                class="btn-disfavorite w-28 h-4 object-cover">
+                                                class="btn-disfavorite w-6 h-6 object-cover">
                                     @else
                                         <img src="{{asset('img/favorite-black.png')}}"
                                                 data-id="{{$image->id}}"
-                                                class="btn-favorite w-28 h-4 object-cover">
+                                                class="btn-favorite w-6 h-6 object-cover">
                                     @endif
 
                                     <span class="favorite-count text-sm" data-id="{{$image->id}}">

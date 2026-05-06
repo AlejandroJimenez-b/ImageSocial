@@ -90,7 +90,7 @@
         <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-indigo-500 transition mb-4">
 
 
-            <div class="max-w-7xl mx-full items-center justify-between">
+            <div class="max-w-7xl mx-auto items-center justify-between">
                 <x-image-card :image="$image" />
             </div>
 

@@ -2,7 +2,7 @@
     <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-60 hidden z-40 backdrop-blur-sm"></div>
 
     <!-- Modal -->
-    <div id="comments-modal" class="fixed inset-0 flex max-w-sm items-center justify-center hidden z-50 p-4">
+    <div id="comments-modal" class="fixed inset-0 flex items-center justify-center hidden z-50 p-4">
         <div class="bg-gray-50 rounded-2xl shadow-2xl w-full mx-4 max-h-[90vh] flex flex-col border border-gray-200" style="max-width: 500px;">
 
             <!-- Cabecera -->

@@ -22,8 +22,8 @@
 
     <x-slot name="slot">
     <div class="flex items-center py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="max-w-5xl bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="w-full mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-7xl bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 
                 <div id="feed-container" class="bg-white dark:bg-gray-800">
                     @include('partials.images-loop', ['images' => $images])
