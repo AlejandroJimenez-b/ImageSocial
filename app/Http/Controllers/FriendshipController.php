@@ -54,6 +54,15 @@ class FriendshipController extends Controller
         return redirect()->back();
     }
 
+    public function cancelRequest($id) {
+        Friendship::where('user_id', Auth::id())
+            ->where('friend_id', $id)
+            ->where('status', 'pending')
+            ->delete();
+
+        return redirect()->back();
+    }
+
     // Aceptar solicitud
     public function acceptRequest($id) {
         $friendship = Friendship::where('user_id', $id)

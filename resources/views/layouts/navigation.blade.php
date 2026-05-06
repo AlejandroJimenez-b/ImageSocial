@@ -19,7 +19,22 @@
                 <!-- Amigos -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('friends.view')" :active="request()->routeIs('friends.*')">
-                        {{ __('Amigos') }}
+                        <div class="relative inline-flex items-center pr-4">
+                            {{ __('Amigos') }}
+
+                            @php
+                                $pendingCount = \App\Models\Friendship::where('friend_id', auth()->id())
+                                    ->where('status', 'pending')
+                                    ->count();
+                            @endphp
+                        </div>
+                        <div class="relative inline-flex items-center">
+                        @if($pendingCount > 0)
+                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                                {{ $pendingCount }}
+                            </span>
+                        @endif
+                        </div>
                     </x-nav-link>
                 </div>
                 <!-- gente -->

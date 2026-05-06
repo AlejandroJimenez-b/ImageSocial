@@ -1,12 +1,16 @@
 <x-app-layout>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight text-center">
-            Subir Imagenes
-        </h2>
+    <div class="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+        <div class="w-full mx-auto sm:px-6 lg:px-8">
+            <h2 class="font-semibold text-xl py-4 text-gray-800 dark:text-gray-200 leading-tight text-center">
+                {{ __('Sube tu imagen') }}
+            </h2>
+        </div>
+    </div>
     </x-slot>
 
-    <div class="max-w-xl mx-auto">
+    <div class="max-w-xl mx-auto mt-4">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
 
             @include('includes.message')
