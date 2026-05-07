@@ -25,7 +25,9 @@
         <div class="w-full mx-auto sm:px-6 lg:px-8">
             <div class="max-w-7xl bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 
-                <div id="feed-container" class="bg-white dark:bg-gray-800">
+                <div id="feed-container" class="bg-gray-800 rounded-xl border border-gray-700 
+                hover:border-indigo-500 transition 
+                p-4 mb-6 shadow-sm">
                     @include('partials.images-loop', ['images' => $images])
                 </div>
 

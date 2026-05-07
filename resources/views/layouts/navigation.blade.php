@@ -6,7 +6,42 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+
+                        <svg 
+                            viewBox="260 40 160 130"
+                            role="img"
+                            class="block h-10 w-auto">
+
+                            <title>ImageSocial logo</title>
+
+                            <polygon points="340,48 390,76 390,132 340,160 290,132 290,76"
+                                fill="#1e293b"
+                                stroke="#6366f1"
+                                stroke-width="2.5"/>
+
+                            <polygon points="340,58 382,82 382,128 340,152 298,128 298,82"
+                                fill="#0f172a"
+                                stroke="#4f46e5"
+                                stroke-width="1"/>
+
+                            <rect x="316" y="78" width="22" height="6" rx="3" fill="#6366f1"/>
+                            <rect x="324" y="84" width="6" height="40" rx="3" fill="#818cf8"/>
+                            <rect x="316" y="124" width="22" height="6" rx="3" fill="#6366f1"/>
+
+                            <path d="M344 84 Q344 78 352 78 Q364 78 364 90 Q364 100 352 103 Q340 106 340 116 Q340 130 352 130 Q364 130 364 124"
+                                fill="none"
+                                stroke="#a5b4fc"
+                                stroke-width="5.5"
+                                stroke-linecap="round"/>
+
+                            <circle cx="385" cy="72" r="4" fill="#6366f1" opacity="0.7"/>
+                            <circle cx="393" cy="80" r="2.5" fill="#818cf8" opacity="0.5"/>
+                            <circle cx="390" cy="65" r="2" fill="#4f46e5" opacity="0.6"/>
+                            <circle cx="295" cy="138" r="4" fill="#6366f1" opacity="0.7"/>
+                            <circle cx="287" cy="130" r="2.5" fill="#818cf8" opacity="0.5"/>
+
+                        </svg>
+
                     </a>
                 </div>
 
@@ -53,6 +88,24 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('images.view')" :active="request()->routeIs('images.*')">
                         {{ __('Subir imagen') }}
+                    </x-nav-link>
+                </div>
+                <!-- Chat -->
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex items-center">
+                    <x-nav-link :href="route('chat.index')" :active="request()->routeIs('chat.*')">
+                        <div class="relative inline-flex items-center pr-4">
+                            {{ __('Chat') }}
+                            @php
+                                $unreadCount = \App\Models\Message::where('receiver_id', auth()->id())
+                                    ->whereNull('read_at')
+                                    ->count();
+                            @endphp
+                            @if($unreadCount > 0)
+                                <span class="absolute -top-2 -right-1 bg-red-500 text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                                    {{ $unreadCount }}
+                                </span>
+                            @endif
+                        </div>
                     </x-nav-link>
                 </div>
 

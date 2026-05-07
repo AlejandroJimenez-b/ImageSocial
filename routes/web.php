@@ -12,6 +12,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\FriendshipController;
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 // use App\Models\Image;
 
@@ -117,6 +118,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/comments/{comment_id}', [CommentsController::class, 'destroy'])->name('comments.destroy');
     Route::get('/comments/{image_id}/json', [CommentsController::class, 'getComments'])->name('comments.json');
 
+});
+
+// Grupo de rutas para el chatbox de la red social
+Route::middleware('auth')->group(function () {
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+    Route::get('/chat/{id}', [ChatController::class, 'show'])->name('chat.show');
+    Route::post('/chat/{id}/send', [ChatController::class, 'send'])->name('chat.send');
 });
 
 // Grupo de rutas para el buscador

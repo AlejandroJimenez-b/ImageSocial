@@ -56,6 +56,11 @@
                 {{-- Ya sois amigos --}}
                 <div class="flex gap-2 items-center">
                     <span class="text-green-400 text-xs font-semibold">✓ Amigos</span>
+                    {{-- Botón chat --}}
+                    <a href="{{ route('chat.show', $user->id) }}"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">
+                        💬 Mensaje
+                    </a>
                     <form action="{{ route('friends.delete', $user->id) }}" method="POST">
                         @csrf
                         @method('DELETE')

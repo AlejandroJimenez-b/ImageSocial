@@ -1,5 +1,5 @@
                 @if($image->user->image)
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <div class="p-6 text-gray-800 dark:text-gray-100 bg-gray-700 mb-6">
 
                         <!-- Header usuario -->
                         <div class="flex items-center gap-3 mb-2">
@@ -28,7 +28,7 @@
 
                         <!-- Meta -->
                         <div>
-                            <span class="text-xs text-gray-600">
+                            <span class="text-xs text-gray-500">
                                 {{' @'.$image->user->nick.' | '.$image->created_at_human}}
                             </span>
                         </div>
