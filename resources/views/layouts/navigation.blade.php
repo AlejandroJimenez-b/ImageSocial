@@ -101,7 +101,7 @@
                                     ->count();
                             @endphp
                             @if($unreadCount > 0)
-                                <span class="absolute -top-2 -right-1 bg-red-500 text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                                <span class="absolute -top-2 -right-1 bg-indigo-500 text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
                                     {{ $unreadCount }}
                                 </span>
                             @endif
