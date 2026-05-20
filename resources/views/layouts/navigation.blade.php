@@ -63,9 +63,9 @@
                                     ->count();
                             @endphp
                         </div>
-                        <div class="relative inline-flex items-center">
+                        <div class="relative inline-flex items-center justify-center mb">
                         @if($pendingCount > 0)
-                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                            <span class="absolute -top-0 -right-1 bg-indigo-500 text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
                                 {{ $pendingCount }}
                             </span>
                         @endif
@@ -101,7 +101,7 @@
                                     ->count();
                             @endphp
                             @if($unreadCount > 0)
-                                <span class="absolute -top-2 -right-1 bg-indigo-500 text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                                <span class="absolute -top-0 -right-1 bg-indigo-500 text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
                                     {{ $unreadCount }}
                                 </span>
                             @endif

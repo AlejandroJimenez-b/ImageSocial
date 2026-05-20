@@ -36,6 +36,11 @@ class MessageSent implements ShouldBroadcast
         ];
     }
 
+    public function broadcastAs(): string
+    {
+        return 'MessageSent';
+    }
+
     public function broadcastOn(): array
     {
         // Canal privado entre los dos usuarios
