@@ -54,12 +54,12 @@
 
 {{-- DATOS PARA JS --}}
 <script>
-    const receiverId = {{ $receiver->id }};
-    const authId = {{ auth()->id() }};
-    const sendUrl = "{{ route('chat.send', $receiver->id) }}";
-    const csrfToken = "{{ csrf_token() }}";
-    const avatarUrl = "{{ route('user.avatar', ['filename' => auth()->user()->image]) }}";
-    const receiverAvatarUrl = "{{ route('user.avatar', ['filename' => $receiver->image]) }}";
+    window.receiverId = {{ $receiver->id }};
+    window.authId = {{ auth()->id() }};
+    window.sendUrl = "{{ route('chat.send', $receiver->id) }}";
+    window.csrfToken = "{{ csrf_token() }}";
+    window.avatarUrl = "{{ route('user.avatar', ['filename' => auth()->user()->image]) }}";
+    window.receiverAvatarUrl = "{{ route('user.avatar', ['filename' => $receiver->image]) }}";
 </script>
 
 @vite(['resources/js/chat.js'])

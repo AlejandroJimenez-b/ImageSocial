@@ -1,3 +1,9 @@
+const receiverId = window.receiverId;
+const authId = window.authId;
+const sendUrl = window.sendUrl;
+const csrfToken = window.csrfToken;
+const avatarUrl = window.avatarUrl;
+const receiverAvatarUrl = window.receiverAvatarUrl;
 // Elementos del DOM
 const messagesContainer = document.getElementById('messages-container');
 const messageInput = document.getElementById('message-input');
@@ -97,8 +103,8 @@ if (messagesContainer && messageInput) {
     console.log('Intentando conectar al canal:', channelName)
 
     window.Echo.private(channelName)
-        .listen('MessageSent', (e) => {
-            console.log('Evento recibido:', e);
+        .listen('.App\\Events\\MessageSent', (e) => {
+            console.log('Mensaje recibido:', e);
             
             if (e.sender_id !== authId) {
                 messagesContainer.innerHTML += createMessageHTML(
