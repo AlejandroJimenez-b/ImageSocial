@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-2">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -91,7 +91,7 @@
                     </x-nav-link>
                 </div>
                 <!-- Chat -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex items-center">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('chat.index')" :active="request()->routeIs('chat.*')">
                         <div class="relative inline-flex items-center pr-4">
                             {{ __('Chat') }}
@@ -139,10 +139,6 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <!-- Ir a inicio desde el menu desplegable(agregado por mi) -->
-                        <x-dropdown-link :href="route('dashboard')">
-                            {{ __('Inicio') }}
-                        </x-dropdown-link>
 
                         <x-dropdown-link :href="route('gente.profile', auth()->user()->id)">
                             {{ __('Mi perfil') }}

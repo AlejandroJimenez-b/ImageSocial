@@ -5,7 +5,7 @@
         <div class="bg-gray-800 mt-4 rounded-xl overflow-hidden shadow-xl p-3">
             <img src="{{ route('images.show', $image->image_path) }}"
                  alt="imagen"
-                 class="max-h-[60vh] w-auto mx-auto rounded-lg"/>
+                 class="max-full h-full w-auto mx-auto rounded-lg"/>
         </div>
 
         {{-- INFO BÁSICA --}}
