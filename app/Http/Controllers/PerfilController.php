@@ -11,6 +11,12 @@ class PerfilController extends Controller
         // Aqui hago la paginacion, y los parametros del 'with' es para evitr N + 1 queries (queris de mas a la db que haran mas lentas las consultas)
         $images = Image::with(['user', 'likes', 'comments'])->orderBy('id', 'desc')->paginate(5);
 
+        // Usuarios activos en los últimos 15 minutos (excluyendo al usuario autenticado, se vera en un sidebar en el dashboard)
+        $activeUsers = \App\Models\User::where('last_activity', '>=', now()->subMinutes(15))
+                        ->where('id', '!=', auth()->id())
+                        ->orderBy('last_activity', 'desc')
+                        ->get();
+
         // Infinite Scroll con ajax (por eso el parametro request)
         if ($request->ajax()) {
             return response()->json([
@@ -19,6 +25,6 @@ class PerfilController extends Controller
             ]);
         }
         // paginacion normal
-        return view('dashboard', compact('images'));
+        return view('dashboard', compact('images', 'activeUsers'));
     }
 }
