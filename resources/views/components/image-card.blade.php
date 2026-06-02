@@ -16,7 +16,7 @@
 
                         <!-- Imagen -->
                         <a href="{{ route('images.details', $image->id) }}">
-                            <div class="w-full h-56 overflow-hidden rounded-lg mb-3">
+                            <div class="w-full h-64 overflow-hidden rounded-lg mb-3" style="aspect-ratio: 4/3;">
                                 <img class="w-full h-full object-cover hover:scale-105 transition duration-300"
                                     src="{{ route('images.show', ['filename' => $image->image_path]) }}">
                             </div>
