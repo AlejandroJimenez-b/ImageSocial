@@ -1,59 +1,124 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ImageSocial
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**ImageSocial** es una red social desarrollada con Laravel como proyecto de aprendizaje avanzado y como mi primer proyecto completo basado en una base de datos relacional real.
 
-## About Laravel
+El objetivo principal del proyecto fue construir una aplicación web funcional que integrara autenticación de usuarios, relaciones sociales, interacción en tiempo real y gestión de contenido multimedia utilizando tecnologías modernas del ecosistema Laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Características principales
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Gestión de usuarios
 
-## Learning Laravel
+* Registro de usuarios.
+* Inicio y cierre de sesión.
+* Eliminación de cuenta.
+* Edición de perfil.
+* Avatar personalizado.
+* Gestión de datos personales.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Publicaciones
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Subida de imágenes al feed.
+* Eliminación de publicaciones propias.
+* Vista detallada de cada publicación.
+* Descripción asociada a cada imagen.
+* Información del autor y fecha de publicación.
 
-## Laravel Sponsors
+### Sistema de interacciones
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+* Likes y dislikes en tiempo real mediante AJAX.
+* Sistema de favoritos en tiempo real mediante AJAX.
+* Contador dinámico de interacciones.
+* Comentarios sin recarga de página.
+* Eliminación de comentarios propios.
 
-### Premium Partners
+### Modal de comentarios
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+* Apertura dinámica desde el feed.
+* Carga de comentarios mediante AJAX.
+* Actualización automática tras publicar o eliminar comentarios.
 
-## Contributing
+### Sistema de amistades
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* Envío de solicitudes de amistad.
+* Solicitudes pendientes.
+* Aceptación y eliminación de amistades.
+* Vista dedicada para visualizar todos los amigos del usuario.
 
-## Code of Conduct
+### Exploración de usuarios
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+* Sección "Gente" para descubrir usuarios registrados.
+* Acciones dinámicas según el estado de la relación entre usuarios.
 
-## Security Vulnerabilities
+### Favoritos
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Guardado de publicaciones favoritas.
+* Vista exclusiva para consultar imágenes guardadas.
 
-## License
+### Chat en tiempo real
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+* Mensajería privada entre usuarios que sean amigos.
+* Comunicación en tiempo real mediante WebSockets.
+* Implementado utilizando Laravel Reverb.
+* Actualización instantánea de mensajes sin recargar la página.
+
+> Nota: actualmente los mensajes no están cifrados de extremo a extremo.
+
+### Feed dinámico
+
+* Scroll infinito implementado mediante AJAX.
+* Sistema alternativo de paginación.
+* Carga progresiva de contenido.
+
+### Sidebar de actividad
+
+* Visualización de usuarios conectados recientemente.
+* Basado en actividad registrada durante los últimos 15 minutos.
+
+---
+
+## Tecnologías utilizadas
+
+### Backend
+
+* PHP
+* Laravel
+* MySQL
+
+### Frontend
+
+* Blade
+* JavaScript
+* AJAX
+* Tailwind CSS
+
+### Tiempo real
+
+* Laravel Reverb
+* WebSockets
+
+---
+
+## Objetivos del proyecto
+
+Durante el desarrollo de ImageSocial se trabajaron conceptos como:
+
+* Arquitectura MVC.
+* Relaciones Eloquent complejas.
+* Autenticación y autorización.
+* Eventos y broadcasting.
+* Comunicación en tiempo real.
+* Manipulación del DOM mediante JavaScript.
+* Peticiones AJAX.
+* Scroll infinito.
+* Optimización de consultas.
+* Seguridad básica en aplicaciones web.
+
+---
+
+## Estado del proyecto
+
+Proyecto funcional y completamente operativo.
+
+Desarrollado como proyecto personal con fines de aprendizaje y consolidación de conocimientos en Laravel, bases de datos relacionales y desarrollo web full stack.
