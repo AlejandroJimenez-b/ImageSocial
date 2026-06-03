@@ -16,6 +16,10 @@ use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 // use App\Models\Image;
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
