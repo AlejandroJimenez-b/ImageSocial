@@ -17,20 +17,25 @@
                         <div class="bg-gray-800 rounded-xl shadow-sm border border-gray-700 mb-4 px-6 py-4 text-center">
                             <h2 class="font-semibold text-xl text-gray-200">{{ __('Feed') }}</h2>
                         </div>
+                        @if($images->count() > 0)
+                            <div id="feed-container" class="flex flex-col gap-4">
+                                @include('partials.images-loop', ['images' => $images])
+                            </div>
 
-                        <div id="feed-container" class="flex flex-col gap-4">
-                            @include('partials.images-loop', ['images' => $images])
-                        </div>
+                            <div id="infinite-scroll-trigger" class="h-10"></div>
 
-                        <div id="infinite-scroll-trigger" class="h-10"></div>
+                            <div id="loader" class="text-center py-4 hidden">
+                                <span class="text-gray-400 text-sm">Cargando más imágenes...</span>
+                            </div>
 
-                        <div id="loader" class="text-center py-4 hidden">
-                            <span class="text-gray-400 text-sm">Cargando más imágenes...</span>
-                        </div>
-
-                        <div class="mt-6 flex justify-center">
-                            {{ $images->links() }}
-                        </div>
+                            <div class="mt-6 flex justify-center">
+                                {{ $images->links() }}
+                            </div>
+                        @else
+                            <div class="text-center py-10">
+                                <span class="text-gray-400 text-sm">No hay imagenes que mostrar aún</span>
+                            </div>
+                        @endif
 
                     </div>
 

@@ -16,32 +16,6 @@ use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 // use App\Models\Image;
 
-Route::get('/', function () {
-    /*
-    $images = Image::all();
-
-    foreach ($images as $image) {
-        echo $image->image_path."<br>";
-        echo $image->description."<br>";
-        echo $image->user->name.' '.$image->user->surname."<br>";
-
-        if(count($image->comments) >= 1) {
-            echo "<h4>Comentarios</h4>";
-            foreach ($image->comments as $comment) {
-                echo $comment->user->name.' '.$comment->user->surname.'<br>';
-                echo $comment->content.'<br>';
-            }
-        }else{
-            echo "<h5>Esta imagen no tiene ningun comentario</h5>";
-        }
-
-        echo "<h4>Likes: ".count($image->likes).'</h4>'.'<hr>';
-    }
-    die();
-    */
-    return view('welcome');
-});
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -83,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/config', [ConfiguracionController::class, 'config'])->name('config.view');
     Route::post('/config', [ConfiguracionController::class, 'update'])->name('config.update');
     Route::get('/user/avatar/{filename}', [ConfiguracionController::class, 'getImage'])->name('user.avatar');
+    Route::delete('/user/delete/{id}', [ConfiguracionController::class, 'deleteUser'])->name('user.delete');
 });
 
 // Grupo de rutas para los amigos de un usuario

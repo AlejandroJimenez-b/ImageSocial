@@ -65,8 +65,20 @@
                     </div>
 
                 </form>
-
+                <form action="{{ route('user.delete', auth()->user()->id) }}" method="POST"
+                    onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.')">
+                    @csrf
+                    @method('DELETE')
+                    <div class="flex justify-end mt-4">
+                        <button type="submit"
+                                class="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">
+                            Eliminar cuenta
+                        </button>
+                    </div>
+                </form>
             </div>
+
+            
         </div>
     </div>
 

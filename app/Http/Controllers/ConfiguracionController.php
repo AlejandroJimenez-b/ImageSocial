@@ -87,4 +87,21 @@ class ConfiguracionController extends Controller
 
         return Storage::disk('users')->response($filename);
     }
+
+    public function deleteUser($id) {
+        $user = Auth::user();
+
+        // Verificar que el usuario solo puede eliminarse a sí mismo
+        if ($user->id != $id) {
+            return redirect()->back()->with('error', 'No tienes permiso para realizar esta acción.');
+        }
+
+        // Cerrar sesión antes de eliminar
+        Auth::logout();
+
+        // Eliminar usuario (comments, likes, images, etc. se borran en cascada)
+        $user->delete();
+
+        return redirect()->route('login')->with('success', 'Tu cuenta ha sido eliminada correctamente.');
+        }
 }
