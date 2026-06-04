@@ -23,7 +23,7 @@
 ### Panel de registro
 
 <p align="center">
-  <img src="docs/images/registro.png" width="200"/>
+  <img src="docs/images/registro.png" width="400"/>
 </p>
 
 <hr>
@@ -31,7 +31,7 @@
 ### Panel de login
 
 <p align="center">
-  <img src="docs/images/login.png" width="200"/>
+  <img src="docs/images/login.png" width="400"/>
 </p>
 
 <hr>
@@ -39,7 +39,7 @@
 ### Feed principal
 
 <p align="center">
-  <img src="docs/images/feed.png" width="200"/>
+  <img src="docs/images/feed.png" width="400"/>
 </p>
 
 <hr>
@@ -47,7 +47,7 @@
 ### Navbar
 
 <p align="center">
-  <img src="docs/images/navbar.png" width="200"/>
+  <img src="docs/images/navbar.png" width="400"/>
 </p>
 
 <hr>
@@ -55,7 +55,7 @@
 ### Perfil de usuario
 
 <p align="center">
-  <img src="docs/images/perfil de usuario.png" width="200"/>
+  <img src="docs/images/perfil de usuario.png" width="400"/>
 </p>
 
 <hr>
@@ -63,7 +63,7 @@
 ### Sistema de amistades
 
 <p align="center">
-  <img src="docs/images/gente y sistema de amigos 1.png" width="200"/>
+  <img src="docs/images/gente y sistema de amigos 1.png" width="400"/>
 </p>
 
 <p align="center"> Solicitud enviada </p>
