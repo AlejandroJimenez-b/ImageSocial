@@ -71,7 +71,20 @@
 
 ### Chat en tiempo real
 
-[CAPTURA]
+<p> Notificacion de nuevo chat </p>
+<p align="center">
+  <img src="docs/images/aviso de mensaje en chat en tiempo real.png" width="200"/>
+</p>
+
+<p align="center"> Mensaje enviado </p>
+<p align="center">
+  <img src="docs/images/chat tiempo real mensaje enviado.png" width="200"/>
+</p>
+
+<p align="center"> Mensaje recibido y respuesta </p>
+<p align="center">
+  <img src="docs/images/chat tiempo real contestacion.png" width="200"/>
+</p>
 
 ---
 
