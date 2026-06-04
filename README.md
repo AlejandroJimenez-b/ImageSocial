@@ -14,15 +14,41 @@
 
 ### Feed principal
 
-[CAPTURA]
+<p align="center">
+  <img src="docs/images/feed.png" width="200"/>
+</p>
 
 ### Perfil de usuario
 
-[CAPTURA]
+<p align="center">
+  <img src="docs/images/perfil de usuario.png" width="200"/>
+</p>
 
 ### Sistema de amistades
-
-[CAPTURA]
+<p> Sistema de amigos </p>
+<p align="center">
+  <img src="docs/images/gente y sistema de amigos 1.png" width="200"/>
+</p>
+<hr>
+<p> Solicitud enviada </p>
+<p align="center">
+  <img src="docs/images/sistema de amigos 2, solicitud enviada.png" width="200"/>
+</p>
+<hr>
+<p> Notificacion en navbar </p>
+<p align="center">
+  <img src="docs/images/sistema de amigos 3 notificacion.png" width="200"/>
+</p>
+<hr>
+<p> Solicitud recibida </p>
+<p align="center">
+  <img src="docs/images/sistema de amigos 4 solicitud recibida.png" width="200"/>
+</p>
+<hr>
+<p> Solicitud aceptada </p>
+<p align="center">
+  <img src="docs/images/sistema de amigos 5 solicitud aceptada.png" width="200"/>
+</p>
 
 ### Favoritos
 
