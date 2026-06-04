@@ -18,18 +18,22 @@
   <img src="docs/images/feed.png" width="200"/>
 </p>
 
+<hr>
+
 ### Perfil de usuario
 
 <p align="center">
   <img src="docs/images/perfil de usuario.png" width="200"/>
 </p>
 
+<hr>
+
 ### Sistema de amistades
 
 <p align="center">
   <img src="docs/images/gente y sistema de amigos 1.png" width="200"/>
 </p>
-<hr>
+
 <p align="center"> Solicitud enviada </p>
 <p align="center">
   <img src="docs/images/sistema de amigos 2, solicitud enviada.png" width="200"/>
@@ -39,20 +43,24 @@
 <p align="center">
   <img src="docs/images/sistema de amigos 3 notificacion.png" width="200"/>
 </p>
-<hr>
+
 <p align="center"> Solicitud recibida </p>
 <p align="center">
   <img src="docs/images/sistema de amigos 4 solicitud recibida.png" width="200"/>
 </p>
-<hr>
+
 <p align="center"> Solicitud aceptada </p>
 <p align="center">
   <img src="docs/images/sistema de amigos 5 solicitud aceptada.png" width="200"/>
 </p>
 
+<hr>
+
 ### Favoritos
 
 [CAPTURA]
+
+<hr>
 
 ### Chat en tiempo real
 
