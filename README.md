@@ -38,7 +38,7 @@
 <p align="center">
   <img src="docs/images/sistema de amigos 2, solicitud enviada.png" width="200"/>
 </p>
-<hr>
+
 <p align="center"> Notificacion en navbar </p>
 <p align="center">
   <img src="docs/images/sistema de amigos 3 notificacion.png" width="200"/>
