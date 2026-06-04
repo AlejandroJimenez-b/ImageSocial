@@ -15,7 +15,7 @@
 ### Portada
 
 <p align="center">
-  <img src="docs/images/portada web.png" width="200"/>
+  <img src="docs/images/portada web.png" width="400"/>
 </p>
 
 <hr>
