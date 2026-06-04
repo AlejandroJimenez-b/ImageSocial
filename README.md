@@ -10,12 +10,44 @@
 
 ---
 
-## 📸 Capturas de pantalla
+## Capturas de pantalla
+
+### Portada
+
+<p align="center">
+  <img src="docs/images/portada web.png" width="200"/>
+</p>
+
+<hr>
+
+### Panel de registro
+
+<p align="center">
+  <img src="docs/images/regsitro web.png" width="200"/>
+</p>
+
+<hr>
+
+### Panel de login
+
+<p align="center">
+  <img src="docs/images/login.png" width="200"/>
+</p>
+
+<hr>
 
 ### Feed principal
 
 <p align="center">
   <img src="docs/images/feed.png" width="200"/>
+</p>
+
+<hr>
+
+### Navbar
+
+<p align="center">
+  <img src="docs/images/navbar.png" width="200"/>
 </p>
 
 <hr>
