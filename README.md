@@ -56,9 +56,16 @@
 
 <hr>
 
-### Favoritos
+### Modal de comentarios
 
-[CAPTURA]
+<p align="center">
+  <img src="docs/images/modal comentarios.png" width="200"/>
+</p>
+
+<p align="center">
+  <img src="docs/images/modal comentarios comentado.png" width="200"/>
+</p>
+
 
 <hr>
 
