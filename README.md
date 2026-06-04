@@ -1,12 +1,40 @@
 # ImageSocial
 
-**ImageSocial** es una red social desarrollada con Laravel como proyecto de aprendizaje avanzado y como mi primer proyecto completo basado en una base de datos relacional real.
+<p align="center">
+  LOGO DEL PROYECTO
+</p>
 
-El objetivo principal del proyecto fue construir una aplicación web funcional que integrara autenticación de usuarios, relaciones sociales, interacción en tiempo real y gestión de contenido multimedia utilizando tecnologías modernas del ecosistema Laravel.
+<p align="center">
+  Red social moderna desarrollada con Laravel que incluye publicación de imágenes, sistema de amistades, chat en tiempo real, interacciones mediante AJAX y scroll infinito.
+</p>
 
 ---
 
-## Características principales
+## 📸 Capturas de pantalla
+
+### Feed principal
+
+[CAPTURA]
+
+### Perfil de usuario
+
+[CAPTURA]
+
+### Sistema de amistades
+
+[CAPTURA]
+
+### Favoritos
+
+[CAPTURA]
+
+### Chat en tiempo real
+
+[CAPTURA]
+
+---
+
+## Características:
 
 ### Gestión de usuarios
 
@@ -15,70 +43,44 @@ El objetivo principal del proyecto fue construir una aplicación web funcional q
 * Eliminación de cuenta.
 * Edición de perfil.
 * Avatar personalizado.
-* Gestión de datos personales.
+* Búsqueda avanzada de usuarios.
 
 ### Publicaciones
 
-* Subida de imágenes al feed.
+* Subida de imágenes.
 * Eliminación de publicaciones propias.
-* Vista detallada de cada publicación.
-* Descripción asociada a cada imagen.
-* Información del autor y fecha de publicación.
+* Vista detallada de publicaciones.
+* Feed principal dinámico.
 
-### Sistema de interacciones
+### Interacciones
 
-* Likes y dislikes en tiempo real mediante AJAX.
-* Sistema de favoritos en tiempo real mediante AJAX.
-* Contador dinámico de interacciones.
-* Comentarios sin recarga de página.
-* Eliminación de comentarios propios.
+* Likes y dislikes mediante AJAX.
+* Sistema de favoritos mediante AJAX.
+* Comentarios dinámicos en modal.
+* Actualización de contadores sin recarga.
+*  Notificaciones en tiempo real.
 
-### Modal de comentarios
+### Sistema social
 
-* Apertura dinámica desde el feed.
-* Carga de comentarios mediante AJAX.
-* Actualización automática tras publicar o eliminar comentarios.
+* Solicitudes de amistad.
+* Gestión de amigos.
+* Vista dedicada para amistades.
 
-### Sistema de amistades
+### Mensajería
 
-* Envío de solicitudes de amistad.
-* Solicitudes pendientes.
-* Aceptación y eliminación de amistades.
-* Vista dedicada para visualizar todos los amigos del usuario.
+* Chat privado entre amigos.
+* Comunicación en tiempo real.
+* Laravel Reverb + WebSockets.
 
-### Exploración de usuarios
+### Rendimiento
 
-* Sección "Gente" para descubrir usuarios registrados.
-* Acciones dinámicas según el estado de la relación entre usuarios.
-
-### Favoritos
-
-* Guardado de publicaciones favoritas.
-* Vista exclusiva para consultar imágenes guardadas.
-
-### Chat en tiempo real
-
-* Mensajería privada entre usuarios que sean amigos.
-* Comunicación en tiempo real mediante WebSockets.
-* Implementado utilizando Laravel Reverb.
-* Actualización instantánea de mensajes sin recargar la página.
-
-> Nota: actualmente los mensajes no están cifrados de extremo a extremo.
-
-### Feed dinámico
-
-* Scroll infinito implementado mediante AJAX.
-* Sistema alternativo de paginación.
-* Carga progresiva de contenido.
-
-### Sidebar de actividad
-
-* Visualización de usuarios conectados recientemente.
-* Basado en actividad registrada durante los últimos 15 minutos.
+* Scroll infinito mediante AJAX.
+* Paginación alternativa.
+* Usuarios conectados recientemente(no tiempo real).
 
 ---
 
-## Tecnologías utilizadas
+## Tecnologías utilizadas:
 
 ### Backend
 
@@ -100,25 +102,72 @@ El objetivo principal del proyecto fue construir una aplicación web funcional q
 
 ---
 
+## Base de datos
+
+El proyecto utiliza MySQL como sistema de gestión de bases de datos.
+
+Principales entidades:
+
+* Users
+* Images
+* Comments
+* Likes
+* Favorites
+* Friendships
+* Messages
+
+---
+
+## Instalación
+
+```bash
+git clone <repositorio>
+cd ImageSocial
+
+composer install
+
+npm install
+
+cp .env.example .env
+
+php artisan key:generate
+
+php artisan migrate
+
+npm run build
+
+php artisan serve
+```
+
+---
+
 ## Objetivos del proyecto
 
-Durante el desarrollo de ImageSocial se trabajaron conceptos como:
+Este proyecto fue desarrollado con el objetivo de profundizar en:
 
 * Arquitectura MVC.
-* Relaciones Eloquent complejas.
-* Autenticación y autorización.
-* Eventos y broadcasting.
-* Comunicación en tiempo real.
-* Manipulación del DOM mediante JavaScript.
-* Peticiones AJAX.
-* Scroll infinito.
-* Optimización de consultas.
+* ORM
+* Laravel Framework.
+* Relaciones Eloquent.
+* AJAX.
+* WebSockets.
+* Desarrollo Full Stack.
+* Bases de datos relacionales.
 * Seguridad básica en aplicaciones web.
 
 ---
 
-## Estado del proyecto
+## Mejoras futuras
 
-Proyecto funcional y completamente operativo.
+* Sistema de grupos.
+* Compartir publicaciones.
+* Cifrado de mensajes.
+* Aplicación móvil.
 
-Desarrollado como proyecto personal con fines de aprendizaje y consolidación de conocimientos en Laravel, bases de datos relacionales y desarrollo web full stack.
+---
+
+## Autor
+
+Alejandro Jiménez
+
+Proyecto desarrollado con fines de aprendizaje y consolidación de conocimientos en desarrollo web Full Stack utilizando Laravel.
