@@ -1,7 +1,7 @@
 # ImageSocial
 
 <p align="center">
-  LOGO DEL PROYECTO
+  <img src="C:\Users\alext\OneDrive\Escritorio\Capturas de pantalla ImgeSocial\logo.png">
 </p>
 
 <p align="center">
