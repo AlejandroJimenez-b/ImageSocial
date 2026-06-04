@@ -23,7 +23,7 @@
 ### Panel de registro
 
 <p align="center">
-  <img src="docs/images/regsitro.png" width="200"/>
+  <img src="docs/images/registro.png" width="200"/>
 </p>
 
 <hr>
