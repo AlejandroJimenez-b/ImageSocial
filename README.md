@@ -25,27 +25,27 @@
 </p>
 
 ### Sistema de amistades
-<p> Sistema de amigos </p>
+
 <p align="center">
   <img src="docs/images/gente y sistema de amigos 1.png" width="200"/>
 </p>
 <hr>
-<p> Solicitud enviada </p>
+<p align="center"> Solicitud enviada </p>
 <p align="center">
   <img src="docs/images/sistema de amigos 2, solicitud enviada.png" width="200"/>
 </p>
 <hr>
-<p> Notificacion en navbar </p>
+<p align="center"> Notificacion en navbar </p>
 <p align="center">
   <img src="docs/images/sistema de amigos 3 notificacion.png" width="200"/>
 </p>
 <hr>
-<p> Solicitud recibida </p>
+<p align="center"> Solicitud recibida </p>
 <p align="center">
   <img src="docs/images/sistema de amigos 4 solicitud recibida.png" width="200"/>
 </p>
 <hr>
-<p> Solicitud aceptada </p>
+<p align="center"> Solicitud aceptada </p>
 <p align="center">
   <img src="docs/images/sistema de amigos 5 solicitud aceptada.png" width="200"/>
 </p>
